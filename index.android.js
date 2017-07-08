@@ -1,8 +1,4 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
+const firebase = require("firebase");
 
 import React, { Component } from 'react';
 import {
@@ -11,6 +7,19 @@ import {
   Text,
   View
 } from 'react-native';
+
+// Initialize Firebase
+const firebaseConfig = {
+  apiKey: "<YOUR-API-KEY>",
+  authDomain: "<YOUR-AUTH-DOMAIN>",
+  databaseURL: "<YOUR-DATABASE-URL>",
+  storageBucket: ""
+};
+firebase.initializeApp(firebaseConfig);
+
+// Create a reference with .ref() instead of new Firebase(url)
+const rootRef = firebase.database().ref();
+const itemsRef = rootRef.child('items');
 
 export default class Jot extends Component {
   render() {
@@ -36,17 +45,17 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+    backgroundColor: '#F5FCFF'
   },
   welcome: {
     fontSize: 20,
     textAlign: 'center',
-    margin: 10,
+    margin: 10
   },
   instructions: {
     textAlign: 'center',
     color: '#333333',
-    marginBottom: 5,
+    marginBottom: 5
   },
 });
 
