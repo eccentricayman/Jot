@@ -2,18 +2,35 @@ const firebase = require("firebase");
 
 import React, { Component } from 'react';
 import {
-  AppRegistry,
-  StyleSheet,
-  Text,
-  View
+	AppRegistry,
+	StyleSheet,
+	Text,
+	View
 } from 'react-native';
 
+//material design
+import { Toolbar, COLOR, ThemeProvider } from 'react-native-material-ui';
+const uiTheme = {
+    palette: {
+        primaryColor: COLOR.green500,
+    },
+    toolbar: {
+        container: {
+            height: 50,
+        },
+    },
+};
+
 // Initialize Firebase
+import data from './keys.json';
+
 const firebaseConfig = {
-  apiKey: "<YOUR-API-KEY>",
-  authDomain: "<YOUR-AUTH-DOMAIN>",
-  databaseURL: "<YOUR-DATABASE-URL>",
-  storageBucket: ""
+	apiKey: data['api-key'],
+    authDomain: data['authentication-domain'],
+    databaseURL: data["database-url"],
+    projectId: data['project-id'],
+    storageBucket: data['storage-bucket'],
+    messagingSenderId: data['messaging-sender-id']
 };
 firebase.initializeApp(firebaseConfig);
 
@@ -23,39 +40,37 @@ const itemsRef = rootRef.child('items');
 
 export default class Jot extends Component {
   render() {
-    return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit index.android.js
-        </Text>
-        <Text style={styles.instructions}>
-          Double tap R on your keyboard to reload,{'\n'}
-          Shake or press menu button for dev menu
-        </Text>
-      </View>
-    );
+      return (
+		  <ThemeProvider uiTheme={uiTheme}>
+			  <View style={styles.container}>
+				  <Toolbar
+					  leftElement="menu"
+					  centerElement="Searchable"
+					  searchable={{
+						  autoFocus: true,
+						  placeholder: 'Search',
+					  }} />
+			  </View>
+		  </ThemeProvider>
+      );
   }
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#F5FCFF'
+    backgroundColor: '#F5FCFF',
   },
   welcome: {
     fontSize: 20,
     textAlign: 'center',
-    margin: 10
+    margin: 10,
   },
   instructions: {
     textAlign: 'center',
     color: '#333333',
-    marginBottom: 5
+    marginBottom: 5,
   },
 });
 
