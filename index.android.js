@@ -52,6 +52,10 @@ firebase.initializeApp(firebaseConfig);
 const rootRef = firebase.database().ref();
 const itemsRef = rootRef.child('items');
 
+var googleSignIn = function() {
+
+}
+
 export default class Jot extends Component {
 	render() {
 		return (
@@ -60,10 +64,11 @@ export default class Jot extends Component {
 				<Toolbar
 					leftElement = {
 						<TouchableNativeFeedback
-							onPress={this._onPressButton}
+							onPress={() => googleSignIn()}
 							useForeground={true}
+							underlayColor={ 'transparent' }
 							background={TouchableNativeFeedback.Ripple('#fff', true)}>
-							<View style={{width: 50, height: 50, alignItems: "center", justifyContent: "center"}}>
+							<View style={styles.userImageWrapper}>
 								<Image
 								source={require('./static/default_user.png')}
 								style={styles.userImage}>
@@ -78,14 +83,12 @@ export default class Jot extends Component {
 					}}
 					style = {{
 						rightElement: { color: COLOR.grey900 }
-					}}
-					onRightElementPress =  
-					</Toolbar>
+					}}></Toolbar>
 
 					<ActionButton
 						style = {{
 							container: { backgroundColor: COLOR.grey900 },
-							icon: { fontSize: 28 }
+							icon: { fontSize: 26 }
 						}}
 					/>
 				</View>
@@ -93,8 +96,6 @@ export default class Jot extends Component {
 		);
 	}
 }
-
-
 
 const styles = StyleSheet.create({
 	container: {
@@ -105,13 +106,20 @@ const styles = StyleSheet.create({
 	title: {
 		color: "#212121",
 		fontWeight: "500",
-		fontSize: 22
+		fontSize: 20
+	},
+	userImageWrapper: {
+		width: 30, 
+		height: 30, 
+		alignItems: "center", 
+		justifyContent: "center", 
+		borderRadius: 30,
+		marginLeft: 10
 	},
 	userImage: {
-		borderRadius: 500,
+		borderRadius: 30,
 		width: 30,
-		height: 30,
-		marginLeft: 10
+		height: 30
 	}
 });
 
