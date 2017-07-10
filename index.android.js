@@ -8,6 +8,7 @@ import {
 	Image,
 	Button,
 	TouchableNativeFeedback,
+	UIManager,
 	View
 } from 'react-native';
 
@@ -19,6 +20,9 @@ import {
 	Icon,
 	ActionButton
 } from 'react-native-material-ui';
+
+UIManager.setLayoutAnimationEnabledExperimental && 
+UIManager.setLayoutAnimationEnabledExperimental(true);
 
 const uiTheme = {
 	palette: {
@@ -74,7 +78,9 @@ export default class Jot extends Component {
 					}}
 					style = {{
 						rightElement: { color: COLOR.grey900 }
-					}}></Toolbar>
+					}}
+					onRightElementPress =  
+					</Toolbar>
 
 					<ActionButton
 						style = {{
@@ -87,6 +93,8 @@ export default class Jot extends Component {
 		);
 	}
 }
+
+
 
 const styles = StyleSheet.create({
 	container: {
