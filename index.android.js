@@ -1,126 +1,203 @@
-const firebase = require("firebase");
-
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import {
 	AppRegistry,
 	StyleSheet,
-	Text,
 	Image,
-	Button,
-	TouchableNativeFeedback,
-	UIManager,
-	View
+	StatusBar,
+	ScrollView
 } from 'react-native';
 
-//material design
-import {
-	Toolbar,
-	COLOR,
-	ThemeProvider,
-	Icon,
-	ActionButton
-} from 'react-native-material-ui';
+//ui components
+import { Container, Header, Content, Card, CardItem, Thumbnail, Text, Button, Icon, Left, Body, View, Title, Right, List, ListItem } from 'native-base';
+//navigation
+import { StackNavigator, DrawerNavigator, DrawerItems } from 'react-navigation';
+//google signin
+//import {GoogleSignin, GoogleSigninButton} from 'react-native-google-signin';
 
-UIManager.setLayoutAnimationEnabledExperimental && 
-UIManager.setLayoutAnimationEnabledExperimental(true);
+// GoogleSignin.configure({
+// 	webClientId: "",
+// 	offlineAccess: true
+// })
+// .then(() => {
+// 	const user = GoogleSignin.currentUser();
+// });
 
-const uiTheme = {
-	palette: {
-		primaryColor: COLOR.white
-	},
-	toolbar: {
-		container: {
-			height: 50
-		}
-	}
-};
-
-// Initialize Firebase
-import data from './keys.json';
-
-const firebaseConfig = {
-	apiKey: data['api-key'],
-	authDomain: data['authentication-domain'],
-	databaseURL: data["database-url"],
-	projectId: data['project-id'],
-	storageBucket: data['storage-bucket'],
-	messagingSenderId: data['messaging-sender-id']
-};
-firebase.initializeApp(firebaseConfig);
-
-// Create a reference with .ref() instead of new Firebase(url)
-const rootRef = firebase.database().ref();
-const itemsRef = rootRef.child('items');
-
-var googleSignIn = function() {
-
-}
-
-export default class Jot extends Component {
+class JotHome extends React.Component {
 	render() {
 		return (
-			<ThemeProvider uiTheme={uiTheme}>
-				<View style={styles.container}>
-				<Toolbar
-					leftElement = {
-						<TouchableNativeFeedback
-							onPress={() => googleSignIn()}
-							useForeground={true}
-							underlayColor={ 'transparent' }
-							background={TouchableNativeFeedback.Ripple('#fff', true)}>
-							<View style={styles.userImageWrapper}>
-								<Image
-								source={require('./static/default_user.png')}
-								style={styles.userImage}>
-								</Image>
-							</View>
-						</TouchableNativeFeedback>
-					}
-					centerElement={ <Text style={styles.title}>Jot</Text> }
-					searchable = {{
-						autoFocus: true,
-						placeholder: 'Search'
-					}}
-					style = {{
-						rightElement: { color: COLOR.grey900 }
-					}}></Toolbar>
-
-					<ActionButton
-						style = {{
-							container: { backgroundColor: COLOR.grey900 },
-							icon: { fontSize: 26 }
-						}}
-					/>
-				</View>
-			</ThemeProvider>
+			<Container>
+				<Header style={styles.topBar}>
+					<Left style={styles.topBarLeft}>
+						<Button
+							transparent
+							onPress={() => this.props.navigation.navigate('DrawerOpen')}>
+							<Icon name="menu" style={styles.topBarIcon} />
+						</Button>
+					</Left>
+					<Body style={styles.topBarBody}>
+						<Title style={styles.topBarTitle}>Jot</Title>
+					</Body>
+					<Right />
+				</Header>
+				<Content>
+					<Card style={styles.cardPreview}>
+						<CardItem>
+							<Left>
+								<Body>
+									<Text>Note Title</Text>
+									<Text note>April 15, 2016</Text>
+								</Body>
+							</Left>
+						</CardItem>
+						<CardItem>
+							<Body>
+								<Text>
+									Note summary
+								</Text>
+							</Body>
+						</CardItem>
+					</Card>
+					<Card style={styles.cardPreview}>
+						<CardItem>
+							<Left>
+								<Body>
+									<Text>Note Title</Text>
+									<Text note>April 15, 2016</Text>
+								</Body>
+							</Left>
+						</CardItem>
+						<CardItem>
+							<Body>
+								<Text>
+									Note summary
+								</Text>
+							</Body>
+						</CardItem>
+					</Card>
+					<Card style={styles.cardPreview}>
+						<CardItem>
+							<Left>
+								<Body>
+									<Text>Note Title</Text>
+									<Text note>April 15, 2016</Text>
+								</Body>
+							</Left>
+						</CardItem>
+						<CardItem>
+							<Body>
+								<Text>
+									Note summary
+								</Text>
+							</Body>
+						</CardItem>
+					</Card>
+				</Content>
+			</Container>
 		);
 	}
 }
 
-const styles = StyleSheet.create({
-	container: {
-		flex: 1,
-		alignItems: 'center',
-		backgroundColor: '#FAFAFA'
+const JotDrawer = (props) => (
+	
+	<ScrollView style={styles.container}>
+		
+		<Image style={styles.userImage} source={require("./static/default_user.png")} />
+		<List>
+			<ListItem itemDivider>
+				<Text style={{textAlign: "center"}}>Starred Notes</Text>
+			</ListItem>
+			<ListItem>
+				<Text>first note</Text>
+			</ListItem>
+			<ListItem>
+				<Text>first note</Text>
+			</ListItem>
+			<ListItem>
+				<Text>first note</Text>
+			</ListItem>
+			<ListItem>
+				<Text>first note</Text>
+			</ListItem>
+			<ListItem>
+				<Text>first note</Text>
+			</ListItem>
+			<ListItem>
+				<Text>first note</Text>
+			</ListItem>
+			<ListItem>
+				<Text>first note</Text>
+			</ListItem>
+			<ListItem>
+				<Text>first note</Text>
+			</ListItem>
+			<ListItem>
+				<Text>first note</Text>
+			</ListItem>
+			<ListItem>
+				<Text>first note</Text>
+			</ListItem>
+			<ListItem>
+				<Text>first note</Text>
+			</ListItem>
+			<ListItem>
+				<Text>first note</Text>
+			</ListItem>
+			<ListItem>
+				<Text>first note</Text>
+			</ListItem>
+			<ListItem>
+				<Text>first note</Text>
+			</ListItem>
+			<ListItem>
+				<Text>first note</Text>
+			</ListItem>
+			<ListItem>
+				<Text>first note</Text>
+			</ListItem>
+		</List>
+	</ScrollView>
+);
+
+export default Jot = DrawerNavigator({
+	Home: { screen: JotHome }
+}, {
+	contentComponent: JotDrawer
+});
+
+var styles = StyleSheet.create({
+	cardPreview: {
+		width: "95%",
+		alignSelf: "center",
+		marginTop: "2.5%",
+		marginBottom: 0
 	},
-	title: {
-		color: "#212121",
-		fontWeight: "500",
-		fontSize: 20
+	topBar: {
+		backgroundColor: "#FFFFFF"
 	},
-	userImageWrapper: {
-		width: 30, 
-		height: 30, 
-		alignItems: "center", 
-		justifyContent: "center", 
-		borderRadius: 30,
-		marginLeft: 10
+	topBarLeft: {
+		paddingRight: 0,
+		marginRight: 0,
+		width: "5%"
+	},
+	topBarIcon: {
+		color: "#404040"
+	},
+	topBarBody: {
+		paddingLeft: 0,
+		marginLeft: 0
+	},
+	topBarTitle: {
+		color: "#404040"
 	},
 	userImage: {
-		borderRadius: 30,
-		width: 30,
-		height: 30
+		alignSelf: "center",
+		marginTop: "5%",
+		marginBottom: "5%",
+		width: 100,
+		height: 100,
+		borderRadius: 100
 	}
 });
 
+// if you are using create-react-native-app you don't need this line
 AppRegistry.registerComponent('Jot', () => Jot);
