@@ -7,44 +7,31 @@
 //
 
 import UIKit
-import Material
+import Hue
+import FontAwesome_swift
 
-class ViewController: UIViewController {
-    fileprivate var menuButton: IconButton!
-    fileprivate var searchButton: IconButton!
+class JotHomeViewController: UIViewController {
     
-    fileprivate var fabButton: FABButton!
-    
-    open override func viewDidLoad() {
+    override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = Color.grey.lighten5
         
-        prepareMenuButton()
-        prepareSearchButton()
-        prepareNavigationItem()
-        prepareFABButton()
-    }
-}
-
-fileprivate extension ViewController {
-    func prepareMenuButton() {
-        menuButton = IconButton(image: Icon.cm.menu)
-        //menuButton.addTarget(self, action: #selector(handleMenuButton), for: .touchUpInside)
-    }
-    
-    func prepareSearchButton() {
-        searchButton = IconButton(image: Icon.cm.search)
-    }
-    
-    func prepareNavigationItem() {
-        navigationItem.titleLabel.text = "Jot"
         
-        navigationItem.leftViews = [menuButton]
-        navigationItem.rightViews = [searchButton]
+        let menuButton = UIBarButtonItem()
+        let searchButton = UIBarButtonItem()
+        
+        let attributes = [NSFontAttributeName: UIFont.fontAwesome(ofSize: 20)] as [String: Any]
+        
+        menuButton.setTitleTextAttributes(attributes, for: .normal)
+        menuButton.tintColor = UIColor(hex: "#404040")
+        menuButton.title = String.fontAwesomeIcon(name: .bars)
+        
+        searchButton.setTitleTextAttributes(attributes, for: .normal)
+        searchButton.tintColor = UIColor(hex: "#404040")
+        searchButton.title = String.fontAwesomeIcon(name: .search)
+        
+        self.navigationItem.leftBarButtonItem = menuButton
+        self.navigationItem.rightBarButtonItem = searchButton
+        
     }
     
-    func prepareFABButton() {
-        fabButton = FABButton(image: Icon.cm.add)
-        view.layout(fabButton).width(64).height(64).bottom(24).right(24)
-    }
 }
