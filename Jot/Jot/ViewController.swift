@@ -9,12 +9,12 @@
 import UIKit
 import Hue
 import FontAwesome_swift
+import SideMenu
 
 class JotHomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         
         let menuButton = UIBarButtonItem()
         let searchButton = UIBarButtonItem()
@@ -24,6 +24,8 @@ class JotHomeViewController: UIViewController {
         menuButton.setTitleTextAttributes(attributes, for: .normal)
         menuButton.tintColor = UIColor(hex: "#404040")
         menuButton.title = String.fontAwesomeIcon(name: .bars)
+        menuButton.target = self
+        menuButton.action = #selector(JotHomeViewController.openMenu)
         
         searchButton.setTitleTextAttributes(attributes, for: .normal)
         searchButton.tintColor = UIColor(hex: "#404040")
@@ -32,6 +34,24 @@ class JotHomeViewController: UIViewController {
         self.navigationItem.leftBarButtonItem = menuButton
         self.navigationItem.rightBarButtonItem = searchButton
         
+        let menuLeftNavigationController = UISideMenuNavigationController(rootViewController: JotMenuViewController())
+        menuLeftNavigationController.leftSide = true
+        SideMenuManager.menuLeftNavigationController = menuLeftNavigationController
+        
+        SideMenuManager.menuAddPanGestureToPresent(toView: self.navigationController!.navigationBar)
+        SideMenuManager.menuAddScreenEdgePanGesturesToPresent(toView: self.navigationController!.view)
+        
+        //settings
+        SideMenuManager.menuFadeStatusBar = false
+        menuLeftNavigationController.setNavigationBarHidden(true, animated: false)
+        SideMenuManager.menuAnimationBackgroundColor = UIColor.white
+        SideMenuManager.menuPresentMode = .viewSlideInOut
+
     }
+    
+    func openMenu() {
+        present(SideMenuManager.menuLeftNavigationController!, animated: true, completion: nil)
+    }
+
     
 }

@@ -14,6 +14,8 @@ target 'Jot' do
 
   pod 'Hue'
 
+  pod 'SideMenu', '~> 2.3.4'
+
   pod 'Firebase/Auth'
   pod 'Firebase/Storage'
   pod 'GoogleSignIn'

@@ -46,6 +46,7 @@ PODS:
   - GTMSessionFetcher/Full (1.1.9):
     - GTMSessionFetcher/Core (= 1.1.9)
   - Hue (2.0.1)
+  - SideMenu (2.3.4)
 
 DEPENDENCIES:
   - Firebase/Auth
@@ -53,6 +54,7 @@ DEPENDENCIES:
   - FontAwesome.swift
   - GoogleSignIn
   - Hue
+  - SideMenu (~> 2.3.4)
 
 SPEC CHECKSUMS:
   Firebase: 2b1cdfba1cda8589f32904a697cc753322bff9d8
@@ -67,7 +69,8 @@ SPEC CHECKSUMS:
   GTMOAuth2: 7fc9c10f5c745f4d9850419ea88889fe3baa6b7d
   GTMSessionFetcher: 5c046c76a1f859bc9c187e918f18e4fc7bb57b5e
   Hue: 354caec055fdc9d38b5ef33ca2e7224721843baf
+  SideMenu: 2ea1a015d14ffb96110af43fe3232d995943e726
 
-PODFILE CHECKSUM: 4fa546425984cb17a597a90b72a74da2e7948a8d
+PODFILE CHECKSUM: 6d8412293ff8cc2086b86efef4efc976ab713d58
 
 COCOAPODS: 1.3.1
