@@ -1,22 +1,18 @@
 //
-//  JotMenuViewController.swift
+//  JotNoteListController.swift
 //  Jot
 //
-//  Created by Ayman Ahmed on 10/7/17.
+//  Created by Ayman Ahmed on 10/9/17.
 //  Copyright © 2017 Ayman Ahmed. All rights reserved.
 //
 
 import Foundation
 import UIKit
 
-class JotMenuViewController : UIViewController {
-    
-    var userImage : UIImage?
+class JotNoteListController : UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-     
-        
     }
     
 }

@@ -10,11 +10,14 @@ import UIKit
 import Hue
 import FontAwesome_swift
 import SideMenu
+import Floaty
 
 class JotHomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.view.backgroundColor = UIColor(hex: "#FAFAFA")
         
         let menuButton = UIBarButtonItem()
         let searchButton = UIBarButtonItem()
@@ -47,6 +50,15 @@ class JotHomeViewController: UIViewController {
         SideMenuManager.menuAnimationBackgroundColor = UIColor.white
         SideMenuManager.menuPresentMode = .viewSlideInOut
 
+        //floating add button
+        let floaty = Floaty()
+        floaty.sticky = true
+        floaty.buttonImage = UIImage.fontAwesomeIcon(name: .plus, textColor: UIColor(hex: "#FAFAFA"), size: CGSize(width: 30, height: 30))
+        floaty.buttonColor = UIColor(hex: "#404040")
+        self.view.addSubview(floaty)
+        
+        //notes list time
+        
     }
     
     func openMenu() {

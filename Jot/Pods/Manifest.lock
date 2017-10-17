@@ -22,6 +22,7 @@ PODS:
   - FirebaseStorage (1.1.0):
     - FirebaseAnalytics (~> 3.7)
     - GTMSessionFetcher/Core (~> 1.1)
+  - Floaty (3.0.1)
   - FontAwesome.swift (1.1.1)
   - GoogleSignIn (4.0.2):
     - GoogleToolboxForMac/NSDictionary+URLArguments (~> 2.1)
@@ -51,6 +52,7 @@ PODS:
 DEPENDENCIES:
   - Firebase/Auth
   - Firebase/Storage
+  - Floaty
   - FontAwesome.swift
   - GoogleSignIn
   - Hue
@@ -63,6 +65,7 @@ SPEC CHECKSUMS:
   FirebaseCore: a024587e43778508700af8c6b1209f7c4516ba02
   FirebaseInstanceID: 2d0518b1378fe9d685ef40cbdd63d2fdc1125339
   FirebaseStorage: a5c55b23741a49a72af8f30f95b3bb5ddbeda12d
+  Floaty: bb7a353deee9ddcc14c584ca9c538efdc19669f2
   FontAwesome.swift: f4ff5a9199dc3b510eba5bb377e834f159aef358
   GoogleSignIn: d7ad83f13480e1f30453471d00d19b5293ac46af
   GoogleToolboxForMac: 8e329f1b599f2512c6b10676d45736bcc2cbbeb0
@@ -71,6 +74,6 @@ SPEC CHECKSUMS:
   Hue: 354caec055fdc9d38b5ef33ca2e7224721843baf
   SideMenu: 2ea1a015d14ffb96110af43fe3232d995943e726
 
-PODFILE CHECKSUM: 6d8412293ff8cc2086b86efef4efc976ab713d58
+PODFILE CHECKSUM: 76a7f0bf17572cc20872af5b7efed60d0d9edb98
 
 COCOAPODS: 1.3.1

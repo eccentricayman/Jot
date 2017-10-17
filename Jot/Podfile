@@ -16,6 +16,8 @@ target 'Jot' do
 
   pod 'SideMenu', '~> 2.3.4'
 
+  pod "Floaty"
+
   pod 'Firebase/Auth'
   pod 'Firebase/Storage'
   pod 'GoogleSignIn'

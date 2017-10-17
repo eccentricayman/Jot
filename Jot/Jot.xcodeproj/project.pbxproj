@@ -16,6 +16,8 @@
 		C2108AA91F848EB000FD6764 /* JotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2108AA81F848EB000FD6764 /* JotTests.swift */; };
 		C2108AB41F848EB000FD6764 /* JotUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2108AB31F848EB000FD6764 /* JotUITests.swift */; };
 		C224F73F1F89CA84004A936B /* JotMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C224F73E1F89CA84004A936B /* JotMenuViewController.swift */; };
+		C2B0AF3B1F8B4957006FD013 /* JotNoteListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B0AF3A1F8B4957006FD013 /* JotNoteListController.swift */; };
+		C2B0AF3D1F8B4A5C006FD013 /* JotNoteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B0AF3C1F8B4A5C006FD013 /* JotNoteCell.swift */; };
 		C471651499A77A5462B066F6 /* Pods_Jot.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B10DAB00E2BDE38C98D4EAB8 /* Pods_Jot.framework */; };
 		D34C7B62E538D5E1C3F91139 /* Pods_JotTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E77B5AC4209F3A2354C50C18 /* Pods_JotTests.framework */; };
 /* End PBXBuildFile section */
@@ -58,6 +60,8 @@
 		C2108AB31F848EB000FD6764 /* JotUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JotUITests.swift; sourceTree = "<group>"; };
 		C2108AB51F848EB000FD6764 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C224F73E1F89CA84004A936B /* JotMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JotMenuViewController.swift; sourceTree = "<group>"; };
+		C2B0AF3A1F8B4957006FD013 /* JotNoteListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JotNoteListController.swift; sourceTree = "<group>"; };
+		C2B0AF3C1F8B4A5C006FD013 /* JotNoteCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JotNoteCell.swift; sourceTree = "<group>"; };
 		CA39E8B1447B36884837857B /* Pods-JotTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JotTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JotTests/Pods-JotTests.debug.xcconfig"; sourceTree = "<group>"; };
 		D04C2CCEDD3809865E1EE086 /* Pods-JotUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JotUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JotUITests/Pods-JotUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		E77B5AC4209F3A2354C50C18 /* Pods_JotTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JotTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -143,6 +147,8 @@
 				C2108A951F848EB000FD6764 /* ViewController.swift */,
 				C224F73E1F89CA84004A936B /* JotMenuViewController.swift */,
 				C2108A971F848EB000FD6764 /* Main.storyboard */,
+				C2B0AF3C1F8B4A5C006FD013 /* JotNoteCell.swift */,
+				C2B0AF3A1F8B4957006FD013 /* JotNoteListController.swift */,
 				C2108A9A1F848EB000FD6764 /* Assets.xcassets */,
 				C2108A9C1F848EB000FD6764 /* LaunchScreen.storyboard */,
 				C2108A9F1F848EB000FD6764 /* Info.plist */,
@@ -350,6 +356,7 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Jot/Pods-Jot-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Floaty/Floaty.framework",
 				"${BUILT_PRODUCTS_DIR}/FontAwesome.swift/FontAwesome_swift.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMOAuth2/GTMOAuth2.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
@@ -359,6 +366,7 @@
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Floaty.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FontAwesome_swift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMOAuth2.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
@@ -477,7 +485,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C2B0AF3D1F8B4A5C006FD013 /* JotNoteCell.swift in Sources */,
 				C2108A961F848EB000FD6764 /* ViewController.swift in Sources */,
+				C2B0AF3B1F8B4957006FD013 /* JotNoteListController.swift in Sources */,
 				C224F73F1F89CA84004A936B /* JotMenuViewController.swift in Sources */,
 				C2108A941F848EB000FD6764 /* AppDelegate.swift in Sources */,
 			);
